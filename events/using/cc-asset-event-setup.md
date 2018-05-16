@@ -8,6 +8,7 @@ These instructions describe how to set up Creative Cloud Asset events using Adob
 - [Access events](#accessevents)  
 - [Create an integration](#createanintegration)  
 - [Receive events](#receiveevents)
+- [Adobe Consent API](#consentapi)
 
 ## Introduction
 Creative Cloud Assets provides a simple set of events to which you can subscribe: 
@@ -22,7 +23,6 @@ There are no events for the following activities:
 ## Access events
 Unlike other Cloud Platform event providers, Creative Cloud Assets does not require an enterprise account, or administrative status, to gain access for creating integrations or receiving events. However, the integrations you create will still need to authenticate the same way any other Adobe integrations do. Consider what kind of authentication your integration needs before you start, and follow the correct procedure (see [Adobe Authentication](https://www.adobe.io/apis/cloudplatform/console/authentication/gettingstarted.html)) to get the access rights your integration needs.
 
-> **Note:** Creative Cloud Assets events are currently accessible through a managed beta program. See https://adobeio.typeform.com/to/QvEgPP to apply for access.
 
 ## Create an integration
 For the purposes of this example, you&rsquo;ll be creating an individual integration using your personal Adobe ID. 
@@ -61,7 +61,7 @@ Several tools exist on the web that can be used for this purpose: [ngrok](https:
 First, configure a local web server. There are a number of choices, depending on whether you're Windows, Mac, or Linux.
 Next, you'll need a simple function to respond to the Adobe I/O challenge. Try this JavaScript:
 
- ```js
+```javascript
 var express = require('express');
 var Webtask = require('webtask-tools');
 var bodyParser = require('body-parser');
@@ -134,8 +134,11 @@ Now you&rsquo;re ready to configure ngrok to serve your webhook over the interne
 
  Adobe&rsquo;s User Auth UI lets you build into your application a login function that takes the user&rsquo;s Adobe ID and lets the user give your app permission to access the assets and Adobe Solutions to which they&rsquo;re subscribed. Once your app is authenticated, Adobe will begin to push events to your integration&rsquo;s webhook via HTTP POST messages.
 
+## Adobe Consent API
 To authenticate your app to receive your users&rsquo; events, you&rsquo;ll need to direct your users to the Adobe Consent API:
 
-`https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=`_`client_id_from_io_console`_`&scope=AdobeID%2Copenid%2Ccreative_sdk`
+`https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=`_`api_key_from_io_console`_`&scope=AdobeID%2Copenid%2Ccreative_sdk`
+
+You will need to replace api_key_from_io_console with the value from your Adobe I/O Console overview tab API Key (Client ID), for this integration.
 
 A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ.
