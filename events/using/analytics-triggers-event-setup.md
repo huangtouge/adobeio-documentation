@@ -5,7 +5,7 @@
 These instructions describe how to use Adobe Analytics triggers to notify you of Adobe I/O events, including the behavior of your site&rsquo;s users. Follow the instructions below to try the solution yourself.
 
 - [Introduction](#introduction)
-- [Set up products](#setupproducts)
+- [Setup products](#setupproducts)
 - [Use Adobe I/O](#useadobeio)
 - [Watch the solution work](#watchthesolutionwork)
 
@@ -44,7 +44,7 @@ If you do not have administrative permissions, please contact your Adobe System 
 
    ![Admin rights email](../../img/events_atrig_01.png)
 
-### Set up Analytics Triggers
+### Setup products
 
 To set up Analytics Triggers:
 
