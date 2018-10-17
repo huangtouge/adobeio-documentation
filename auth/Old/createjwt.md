@@ -44,6 +44,7 @@ Other JWT tools are publicly available, such as the [JWT decoder](http://jwt-dec
 Examples are provided for several popular languages.
 
 **JWT Libraries**
+
 | Language | Library | Example |
 |---|---|---|
 | Java | `atlassian-jwt`, `jsontoken` | [Creating JWTs for Java Apps](createjwt/jwt_java.md) |
@@ -54,6 +55,7 @@ Examples are provided for several popular languages.
 The following JWT libraries are available, in addition to the Java, Node.js, and Python libraries for which we have provided examples.
 
 **JWT Libraries**
+
 | Language | Library |
 |---|---|
 | Ruby | `ruby-jwt` |
